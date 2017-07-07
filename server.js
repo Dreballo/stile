@@ -37,6 +37,13 @@ app.use(methodOverride("_method"));
 app.use(express.static("./public"));
 
 //=================================================================
+// configure route controller
+//=================================================================
+
+require('./controllers/apiRoutes');
+
+
+//=================================================================
 // Grab env port and start listening on all network interfaces
 //=================================================================
 
