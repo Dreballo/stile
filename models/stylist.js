@@ -45,7 +45,7 @@ module.exports = function (sequelize, DataTypes){
                             allowNull: true
                         }
                     });
-                    Stylist.hasMany(models.Schedule,{
+                    Stylist.hasMany(models.Availability,{
                         foreignKey:{
                             allowNull: true
                         }

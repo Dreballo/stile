@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     gender_Female: {
         type: DataTypes.BOOLEAN,
-        default: true
+        defaultValue: true
     }
 
   },

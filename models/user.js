@@ -25,12 +25,12 @@ module.exports = function(sequelize, DataTypes) {
 
             classMethods: {
                 associate: function(models) {
-                    User.hasOne(models.Appointment, {
+                    User.hasMany(models.Appointment, {
                         foreignKey: {
                             allowNull: true
                         }
                     });
-                    User.hasOne(models.Stylist, {
+                    User.hasMany(models.Stylist, {
                         foreignKey: {
                             allowNull: true
                         }
