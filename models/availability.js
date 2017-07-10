@@ -8,15 +8,21 @@ module.exports = function (sequelize,DataTypes){
           type: DataTypes.INTEGER
       },
       available_date:{
-          type: DataTypes.DATEONLY,
+          type: DataTypes.STRING,
           validate: {
-              isDate: true
+              allowNull: true
           }
       },
-      available_time: {
+      start_time: {
           type: DataTypes.STRING,
           validate:{
                 allowNull: true
+          }
+      },
+      end_time: {
+          type: DataTypes.STRING,
+          validate:{
+              allowNull: true
           }
       },
       open: {
