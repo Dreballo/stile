@@ -27,10 +27,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true,
       len: [1]
-    },
-    gender_Female: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: true
     }
 
   },
@@ -39,7 +35,7 @@ module.exports = function(sequelize, DataTypes) {
         associate: function(models) {
           Profile.belongsTo(models.User, {
             foreignKey: {
-              allowNull: true
+              allowNull: false
             }
           });
         }

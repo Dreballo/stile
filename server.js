@@ -1,20 +1,20 @@
 //=================================================================
 // Initialize dependencies
 //=================================================================
-var express = require("express");
-var bodyParser = require("body-parser");
-var logger = require("morgan");
-var methodOverride = require("method-override");
-var db = require("./models");
+const express = require("express");
+const bodyParser = require("body-parser");
+const logger = require("morgan");
+const methodOverride = require("method-override");
+const db = require("./models");
 
 //=================================================================
 // Express server
 //=================================================================
-var app = express();
+const app = express();
 //=================================================================
 // Designate a port or listening
 //=================================================================
-var PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 //=================================================================
 // Middleware for app and logging
@@ -34,20 +34,40 @@ app.use(methodOverride("_method"));
 // Serve Static folder
 //=================================================================
 
-app.use(express.static("./public"));
+app.use(express.static("./build"));
+
+//=================================================================
+// Passport Config
+//=================================================================
+const session = require('express-session');
+const passport = require('passport');
+
+require('./config/passport.js')(passport);
+
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // express session secret
+
+app.use(passport.initialize());
+
+app.use(passport.session()); // persistent login sessions
+
+
 
 //=================================================================
 // configure route controller
 //=================================================================
 
-require('./controllers/apiRoutes');
+require('./controllers/apiRoutes')(app);
 
+//serve app from static file
+app.get("/", function(req, res) {
+    res.sendFile(__dirname + "/public/index.html");
+});
 
 //=================================================================
 // Grab env port and start listening on all network interfaces
 //=================================================================
 
-db.sequelize.sync({ force: false }).then(function() {
+db.sequelize.sync({ force: true }).then(function() {
     app.listen(PORT, function() {
         console.log(`App listening on ${PORT}`);
     });

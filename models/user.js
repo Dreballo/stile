@@ -37,7 +37,7 @@ module.exports = function(sequelize, DataTypes) {
                     });
                     User.hasOne(models.Profile, {
                         foreignKey: {
-                            allowNull: true
+                            allowNull: false
                         }
                     });
                 }
