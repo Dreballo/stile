@@ -1,18 +1,13 @@
-import React from 'react';
+import React,{Component} from 'react';
 
 
-class ScheduleWidget extends React.Component {
+class ScheduleWidget extends Component {
 
 
     render() {
         return (
-        <div className="container">
-            <div className="col s12 card center">
-                <h6>SCHEDULE APPT</h6>
-                <div className="chip" data="">
-                    {this.date}
-                </div>
-            </div>
+        <div className="col s12 center grey" id="schedule-widget">
+            <h1>This will show upcoming appointments</h1>
         </div>
 
         );

@@ -1,9 +1,16 @@
 import React from 'react';
 
 import ScheduleWidget from './dashboard/ScheduleWidget';
+import RequestAppointment from './dashboard/RequestAppointment';
+import StyleBook from "./dashboard/StyleBook";
 
 const Home = () => (
-    <ScheduleWidget/>
+
+    <div>
+        <ScheduleWidget/>
+        <RequestAppointment/>
+        <StyleBook/>
+    </div>
 
 );
 
