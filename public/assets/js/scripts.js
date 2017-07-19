@@ -11,5 +11,7 @@ $( document ).ready(function(){
         max: true
     });
 
+    $('select').material_select();
+
 });
 

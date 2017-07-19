@@ -3,7 +3,7 @@ import React from 'react';
 const Login = () => (
 
     <div className="container" id="login-form">
-        <form action="/register" method="GET">
+        <form action="/home" method="GET">
             <div className="input-field col s12">
                 <label htmlFor="email">Email</label>
                 <input id="login-email" type="email" className="validate"/>

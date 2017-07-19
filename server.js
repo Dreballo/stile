@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const logger = require("morgan");
 const methodOverride = require("method-override");
 const db = require("./models");
+const path = require('path');
 
 //=================================================================
 // Express server
@@ -60,8 +61,9 @@ require('./controllers/apiRoutes')(app);
 
 //serve app from static file
 app.get("/", function(req, res) {
-    res.sendFile(__dirname + "/public/index.html");
+    res.sendFile(__dirname + "/build/index.html");
 });
+
 
 //=================================================================
 // Grab env port and start listening on all network interfaces

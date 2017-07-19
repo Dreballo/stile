@@ -13,6 +13,8 @@ import Login from './components/children/Login';
 import PreLogin from './components/children/PreLogin';
 import Home from './components/children/Home';
 import Footer from './components/children/Footer';
+import UserAppointmentRequest from './components/children/UserAppointmentRequest';
+import AvailableAppointments from './components/children/AvailableAppointments';
 
 class App extends Component {
   render() {
@@ -28,6 +30,8 @@ class App extends Component {
                         <Route path='/home' component={Navbar}/>
                         <Route path='/home' component={Home}/>
                         <Route path='/home' component={Footer}/>
+                        <Route path="/appointment" component={UserAppointmentRequest}/>
+                        <Route path="/available" component={AvailableAppointments}/>
 
               </div>
         </BrowserRouter>
